@@ -52,13 +52,13 @@ public class PlayerController : MonoBehaviour {
 
 	
 		//if(transform.eulerAngles.z > 270f || transform.eulerAngles.z < 90f)
-		if(rigidbody2D.velocity.magnitude < topspeed)
+		//if(rigidbody2D.velocity.magnitude < topspeed)
 			rigidbody2D.AddRelativeForce(new Vector2 (Input.GetAxis("Horizontal")*acc, 0f ), ForceMode2D.Force);
 			//rigidbody2D.AddForce (new Vector2 (Input.GetAxis("Horizontal")*acc, 0f ), ForceMode2D.Force);
 
 
 		if (true) {
-			rigidbody2D.AddForce(new Vector2(dir.x, dir.y).normalized*-gravity);
+			rigidbody2D.AddForce(new Vector2(transform.up.x, transform.up.y)*-gravity);
 				}
 
 

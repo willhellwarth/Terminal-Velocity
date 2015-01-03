@@ -475,6 +475,7 @@ GameObject:
   - 61: {fileID: 2111052840}
   - 114: {fileID: 2111052843}
   - 50: {fileID: 2111052844}
+  - 96: {fileID: 2111052845}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -545,11 +546,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityField: {fileID: 2067299579}
   ground: {fileID: 1463879487}
-  acc: 5
-  topspeed: 5
+  acc: 9
+  topspeed: 4
   gravity: 9
-  jumpForce: 140
-  groundpoundforce: 300
+  jumpForce: 160
+  groundpoundforce: 500
   grounded: 0
 --- !u!50 &2111052844
 Rigidbody2D:
@@ -558,7 +559,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2111052838}
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: .0500000007
   m_GravityScale: 0
   m_FixedAngle: 1
@@ -566,3 +567,44 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!96 &2111052845
+TrailRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2111052838}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: e227a491ddcf6e343bae7d7983ced1a8, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 5
+  m_StartWidth: .200000003
+  m_EndWidth: .200000003
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
