@@ -11,21 +11,29 @@ public class PlayerController : MonoBehaviour {
 	public float jumpForce = 100f;
 	public float groundpoundforce = 500f;
 	public bool grounded = false;
-	private bool infield = true;
+	private bool infield, jumping;
 	Vector3 dir;
 	// Use this for initialization
 	void Start () {
-	
+		GetComponent<TrailRenderer> ().startWidth = transform.localScale.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		Vector3 jumpdir = (transform.position - new Vector3 (0f, 0f, transform.position.z)).normalized;
+		Vector2 jumpdir2 = new Vector2 (jumpdir.x, jumpdir.y);
+		//new Vector2(transform.up.x, transform.up.y)
 
 		if (grounded && Input.GetKeyDown (KeyCode.Space)) {
-			rigidbody2D.AddRelativeForce (Vector2.up * jumpForce);
-		} else if (Input.GetKeyDown (KeyCode.Space)) {
-			rigidbody2D.AddRelativeForce(Vector2.up * -groundpoundforce);
+			jumping = true;
+			rigidbody2D.AddForce (jumpdir2 * jumpForce);
+		}
+		if (Input.GetKeyUp (KeyCode.Space) && jumping) {
+			jumping = false;
+				}
+		else if (Input.GetKey (KeyCode.Space) &! jumping &! grounded) {
+			rigidbody2D.AddForce(jumpdir2 * -groundpoundforce);
 		}
 	
 		if (Vector2.Distance (new Vector2 (transform.position.x, transform.position.y), Vector2.zero) < ground.transform.localScale.x / 2f + 0.2f + transform.localScale.y/2f) {
